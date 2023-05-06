@@ -1,7 +1,6 @@
 /*
 Write a C++ program that prints "Hello world!".
 
-
 */
 
 #include <iostream>
