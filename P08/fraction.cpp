@@ -42,8 +42,9 @@ class Fraction {
     
     private:
     static int gcd(int a, int b);
-    int denominator_;
     int numerator_;
+    int denominator_;
+    
 
 
 
@@ -69,27 +70,20 @@ int Fraction::denominator() const {
 }
 
 Fraction Fraction::sum(const Fraction& right) {
-    numerator_ = numerator_*right.denominator_+right.numerator_*denominator_;
-    denominator_ = denominator_*right.denominator_;
-    return Fraction(numerator_,denominator_);
+    return Fraction(numerator_*right.denominator_+right.numerator_*denominator_,denominator_*right.denominator_);
 
 
     }
 Fraction Fraction::sub(const Fraction& right) {
-    numerator_ = numerator_*right.denominator_-right.numerator_*denominator_;
-    denominator_ = denominator_*right.denominator_;
-    return Fraction(numerator_,denominator_);
+    return Fraction(numerator_*right.denominator_-right.numerator_*denominator_,denominator_*right.denominator_);
 
 }
 Fraction Fraction::mul(const Fraction& right) {
-    numerator_ = numerator_*right.numerator_;
-    denominator_ = denominator_*right.denominator_;
-    return Fraction(numerator_,denominator_);
+    return Fraction(numerator_*right.numerator_,denominator_*right.denominator_);
     }
 Fraction Fraction::div(const Fraction& right) {
-    numerator_ = numerator_*right.denominator_;
-    denominator_ = denominator_*right.numerator_;
-    return Fraction(numerator_,denominator_);
+
+    return Fraction(numerator_*right.denominator_,denominator_*right.numerator_);
 }
 
 int main() {

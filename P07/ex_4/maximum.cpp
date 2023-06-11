@@ -27,7 +27,7 @@ void maximum(const string& input_fname, const string& output_fname) {
         if (num > max_double) max_double = num;
         outfile << fixed << setprecision(3) << num << '\n'; 
     }
-    outfile << "count ="<< count <<'/'<<"max="<<max_double;
+    outfile << "count="<< count <<'/'<<"max="<<max_double;
 }
 
 

@@ -24,7 +24,7 @@ The provided tests use an utility function called print for printing sparse matr
 using namespace std;
 
 bool check_order( const sm_entry& a, const sm_entry& b) {
-    if (a.row < b.row || a.row == b.row && a.col < b.col) return true;
+    if (a.row < b.row || (a.row == b.row && a.col < b.col)) return true;
     return false;
 }
 

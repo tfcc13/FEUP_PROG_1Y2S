@@ -112,8 +112,10 @@ int main() {
   {
     string s = "Hi";
     string m = "";
-    bool r = pangram(s, m);
+    bool r = pangram(s, m);                                                                                                                                                                                                                                                     
     cout << '\"' << s << "\" "
          << boolalpha << r << " \"" << m << "\"\n";
   } // -> "Hi" false "abcdefgjklmnopqrstuvwxyz"
+
+  return 0;
 }

@@ -40,6 +40,7 @@ Hint: use a istringstream object to decompose the string year_month_day.
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <sstream>
 #include "Date2.h"
 
 using namespace std;
@@ -63,27 +64,17 @@ Date::Date(int year, int month, int day) {
 }
 
 Date::Date(const std::string& year_month_day) {
-    int year, month, day;
-  char sep1, sep2;
- 
-  istringstream iss(year_month_day);
-  if (iss >> year >> sep1 >> month >> sep2 >> day
-    && sep1 == '/' && sep2 == '/'
-    && year >= 1 && year <= 9999
-    && month >= 1 && month <= 12
-    && day >= 1 && day <= num_days(year, month))
-  {
-    this->year = year;
-    this->month = month;
-    this->day = day;
-  }
-  else {
-    this->year = 0;
-    this->month = 0;
-    this->day = 0;
-  }
+    std::istringstream iss(year_month_day);
+    char sep, sep1;
+    iss >> year >> sep >> month >> sep1 >> day;
+    if (sep != '/' || sep1 != '/') {
+        year = month = day = 0;
+    }
+    else {
+        *this = Date(year, month, day);
+    }
+    }
 
-}
 
 int Date::get_year() const {
     return year;
